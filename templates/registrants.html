@@ -5,15 +5,17 @@
     <table>
         <thead>
             <tr>
+                <th>ID</th>
                 <th>Name</th>
                 <th>Sport</th>
             </tr>
         </thead>
         <tbody>
-            {% for name in registrants %}
+            {% for registrant in list_registrants %}
                 <tr>
-                    <td>{{ name }}</td>
-                    <td>{{ registrants[name] }}</td>
+                    <td>{{ registrant[0] }}</td>
+                    <td>{{ registrant[1] }}</td>
+                    <td>{{ registrant[2] }}</td>
                 </tr>
             {% endfor %}
         </tbody>
