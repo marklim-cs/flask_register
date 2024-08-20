@@ -37,6 +37,15 @@ def register():
 
     return redirect("/registrants")
 
+@app.route("/deregister", methods=["POST"])
+def deregister():
+    id = request.form.get("id")
+    db = get_db()
+    if id:
+        db.execute("DELETE FROM list_registrants WHERE id = ?", (id,))
+        db.commit()
+    return redirect("/registrants")
+
 @app.route("/registrants")
 def registrants():
     db = get_db()
