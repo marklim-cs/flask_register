@@ -1,9 +1,12 @@
 import sqlite3
+import os
+from dotenv import load_dotenv
 from flask import Flask, request, render_template, redirect, g
 
 app = Flask(__name__)
 
-DATABASE = '/Users/marinaclimovici/dev/flask_training/flask_training/fitness.db'
+load_dotenv()
+DATABASE = os.getenv("DATABASE_URL")
 
 def get_db():
     db = getattr(g, '_database', None)
